@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>安阳人力资源</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="list.css">
+        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <div class="nav">职位信息</div>
+                <div class="title" onclick="loadXMLDoc()" >安阳人力资源</div>
+                <input type="text"  placeholder="请输入搜索内容">
+                <!-- <div class="sousuo">请输入搜索内容</div> -->
+                <div class="tab">
+                    <div class="tab1">
+                        按企业名称搜索
+                    </div>
+                    <div class="tab2">
+                        按岗位条件搜索
+                    </div>
+                </div>
+                <div class="flag">
+
+                </div>
+            </div>
+        </header>
+        <section>
+            <ul>
+                <li>
+                    <div>
+                        <span>化验室</span>
+                        <span>3000-4500</span>
+                    </div>
+                    <div>
+                        <span>安阳市华阳针织有限公司</span>
+                        <span>2019/08/15</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>化验室</span>
+                        <span>3000-4500</span>
+                    </div>
+                    <div>
+                        <span>安阳市华阳针织有限公司</span>
+                        <span>2019/08/15</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>化验室</span>
+                        <span>3000-4500</span>
+                    </div>
+                    <div>
+                        <span>安阳市华阳针织有限公司</span>
+                        <span>2019/08/15</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>化验室</span>
+                        <span>3000-4500</span>
+                    </div>
+                    <div>
+                        <span>安阳市华阳针织有限公司</span>
+                        <span>2019/08/15</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>化验室</span>
+                        <span>3000-4500</span>
+                    </div>
+                    <div>
+                        <span>安阳市华阳针织有限公司</span>
+                        <span>2019/08/15</span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <footer>
+            <div class="bottom">
+                <img src="images/calendar-fill.png" alt="">
+                <img src="images/user.png" alt="">
+                <div>
+                    <span>职位</span>
+                    <span>我的</span>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+    <script type="text/javascript" src="list.js"></script>
+    <script>
+    $.ajax({
+        url: 'http://117.159.2.183:8088/api/employee/search_job',
+        type: 'POST',     // 请求类型，常用的有 GET 和 POST
+        dataType:'json',
+        beforeSend: function(request) {
+                request.setRequestHeader("token", "asdadsadasdasdadadad");
+        },
+        data: {          
+            'page':'1',
+            'limit':'10'// 请求参数
+        },
+        error:function(XmlHttpRequest, textStatus, errorThrown){
+            alter("无法获取数据！");
+        },
+        success: function(data) { // 接口调用成功回调函数
+            console.log(data);// data 为服务器返回的数据
+        }
+    });
+    </script>
+
+</html>
